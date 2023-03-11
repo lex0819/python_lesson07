@@ -2,3 +2,23 @@
 # *Пример:*
 # **Ввод:** пара-ра-рам рам-пам-папам па-ра-па-да
 # **Вывод:** Парам пам-пам
+
+def count_russian_vowels(phrase: str) -> int:
+    vowels = set(('а', 'о', 'е', 'ё', 'и', 'у', 'ы', 'я', 'ю', 'э'))
+    count = 0
+    for i in phrase:
+        if i in vowels:
+            count += 1
+    return count
+
+
+def same_by(characteristic, objects: object) -> bool:
+    return len(set(map(characteristic, objects))) == 1
+
+
+input_text = "пара-ра-рам рам-пам-папам па-ра-па-да"
+
+if same_by(count_russian_vowels, input_text.split(' ')):
+    print("Парам пам-пам")  # true
+else:
+    print("Пам парам")  # false
