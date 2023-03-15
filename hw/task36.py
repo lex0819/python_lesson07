@@ -13,9 +13,16 @@ def print_operation_table(operation, num_rows=6, num_columns=6):
     for i in range(1, num_rows + 1):
         for j in range(1, num_columns + 1):
             if j < num_columns:
-                print(operation(i, j), end=' ')
+                print(operation(i, j), end="\t")
             else:
                 print(operation(i, j))
 
 
+def print_operation_table_cool(operation, num_rows=6, num_columns=6):
+    for row in range(1, num_rows + 1):
+        row_i = map(operation, [row] * num_columns, range(1, num_columns + 1))
+        print(*row_i, sep="\t")
+
+
 print_operation_table(lambda x, y: x * y)
+print_operation_table_cool(lambda x, y: x * y)
